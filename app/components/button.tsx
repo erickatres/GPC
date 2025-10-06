@@ -4,8 +4,8 @@ import * as React from "react"
 import { cn } from "@/app/lib/utils"
 
 export interface FormButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary" | "outline"
-  size?: "sm" | "md" | "lg"
+  variant?: "primary" | "secondary" | "outline" | "ghost"
+  size?: "sm" | "md" | "lg" | "icon"
   loading?: boolean
 }
 
@@ -18,12 +18,14 @@ const FormButton = React.forwardRef<HTMLButtonElement, FormButtonProps>(
       primary: "bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500",
       secondary: "bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500",
       outline: "border border-gray-600 text-gray-300 hover:bg-gray-700 hover:text-white focus:ring-gray-500",
+      ghost: "bg-transparent hover:bg-gray-100 text-gray-700 focus:ring-gray-300", // ✅ Added ghost
     }
 
     const sizes = {
       sm: "h-9 px-3 text-sm",
       md: "h-12 px-6 text-sm",
       lg: "h-14 px-8 text-base",
+      icon: "h-10 w-10 p-2 rounded-full", // ✅ Added icon
     }
 
     return (
